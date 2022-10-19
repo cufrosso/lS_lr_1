@@ -6,15 +6,14 @@
     }
 ?>
 
-<html> <!-- lang="en"-->
+<html>
 <head>
-    <!-- <meta charset="UTF-8"> -->
     <title>Sign up</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Форма регистрации -->
-    <form action="vendor/sign_up.php" method="post"> <!-- enctype="multipart/form-data" -->
+    <form action="vendor/sign_up.php" method="post">
         <h2><center>Sign up</center></h2>
 
         <label>login</label>
