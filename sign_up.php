@@ -13,12 +13,11 @@
     {
         if ($password === $password_confirm)
         {
-            $password_hsh = password_hash($password, PASSWORD_BCRYPT); //password_hash md5
+            $password_hsh = password_hash($password, PASSWORD_BCRYPT);
             $secret_word_hsh = password_hash($secret_word, PASSWORD_BCRYPT);
             if (!empty($login) && !empty($email) && !empty($password) && !empty($password_confirm) && !empty($secret_word))
             {
                 mysqli_query($connect, "INSERT INTO `users` (`id`, `login`, `email`, `password`,`secret_word`) VALUES (NULL, '$login', '$email', '$password_hsh','$secret_word_hsh')");
-                #INSERT INTO `users` (`id`, `login`, `email`, `password`, `sercet_word`) VALUES (NULL, NULL, NULL, NULL, NULL)
                 header('Location: ../login.php');
             }
             else
