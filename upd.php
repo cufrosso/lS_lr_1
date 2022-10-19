@@ -10,12 +10,6 @@ session_start();
 <body>
 
     <form action="vendor/upd_.php" method="post">
-        <?php
-            if ($_SESSION['message']) {
-                echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
-            }
-            unset($_SESSION['message']);
-        ?>
         <h2><center>update password</center></h2>
         <label>login</label>
         <input type="text" name="login" placeholder="login">
@@ -31,6 +25,12 @@ session_start();
 
         <button type="submit">update password</button>
         <a href="profile.php">cancel</a>
+        <?php
+            if ($_SESSION['message']) {
+                echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
+            }
+            unset($_SESSION['message']);
+        ?>
     </form>
 
 </body>
