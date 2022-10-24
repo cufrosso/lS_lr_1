@@ -13,37 +13,49 @@
     $user = mysqli_fetch_assoc($sql);
     if(password_verify($secret_word, $user['secret_word'])) #некорректное сравнение: сравнение с любым secret_word из любого поля
     {
-        if ($password === $password_confirm)
+        $number = preg_match('@[0-9]@', $password);
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+        if(strlen($password) < 4 || !$number || !$uppercase || !$lowercase || !$specialChars)
         {
-            if (mysqli_num_rows($sql) === 1)
+            $_SESSION['message'] = "password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character";
+            header('Location: ../signup.php');
+        }
+        else
+        {
+            if ($password === $password_confirm)
             {
-
-                $new_password = password_hash($password, PASSWORD_BCRYPT);
-
-                $update = mysqli_query($connect,"UPDATE `users` SET  `password` = '$new_password' WHERE `login` = '$login' LIMIT 1");
-                if($update)
+                if (mysqli_num_rows($sql) === 1)
                 {
-                    $_SESSION['message'] = 'Password changed successfully';
-                    header('Location: ../login.php');
+
+                    $new_password = password_hash($password, PASSWORD_BCRYPT);
+
+                    $update = mysqli_query($connect,"UPDATE `users` SET  `password` = '$new_password' WHERE `login` = '$login' LIMIT 1");
+                    if($update)
+                    {
+                        $_SESSION['message'] = 'Password changed successfully, your password is strong';
+                        header('Location: ../login.php');
+                    }
+                    else
+                    {
+                        $_SESSION['message'] = 'error in data base';
+                        header('Location: ../recovery.php');
+                    }
+
                 }
                 else
                 {
-                    $_SESSION['message'] = 'error in data base';
-                    header('Location: ../recovery.php');
+                    $_SESSION['message'] = 'wrong username';
+                    header('Location: ../login.php');
                 }
 
             }
             else
             {
-                $_SESSION['message'] = 'wrong username';
-                header('Location: ../login.php');
+                $_SESSION['message'] = "passwords don't match";
+                header('Location: ../recovery.php');
             }
-
-        }
-        else
-        {
-            $_SESSION['message'] = "passwords don't match";
-            header('Location: ../recovery.php');
         }
     }
     else {
