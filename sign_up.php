@@ -1,20 +1,6 @@
 <?php
-    ini_set("session.cookie_lifetime", 60 * 2);
     session_start();
     require_once 'connect.php';
-    $s_name = session_name();
-    if(isset($_COOKIE[$s_name])) setcookie($s_name, $_COOKIE[$s_name], time() + 60, '/' );
-    else 
-    {
-        session_destroy();
-        header('Location: signup.php');
-        exit();
-    }
-    if(isset($_SESSION['id']['login'])) 
-    {
-        header('Location: profile.php');
-        exit();
-    }
 
     $login = $_POST['login'];
     $email = $_POST['email'];
