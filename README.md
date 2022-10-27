@@ -57,7 +57,7 @@ pass: VARCHAR(500), по умолчанию NULL
 ![алгоритмы_5](алгоритмы5.jpg)
 
 ##Примеры HTTP запросов/ответов
--------------
+
 <br>GET /lr_1/profile.php HTTP/1.1
 <br>Host: localhost
 <br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
@@ -98,4 +98,3 @@ pass: VARCHAR(500), по умолчанию NULL
 <br>Keep-Alive: timeout=10, max=97
 <br>Pragma: no-cache
 <br>Server: Apache
---------------
