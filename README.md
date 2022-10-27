@@ -57,6 +57,7 @@ pass: VARCHAR(500), по умолчанию NULL
 ![алгоритмы_5](алгоритмы5.jpg)
 
 ##Примеры HTTP запросов/ответов
+---
 <br>GET /lr_1/profile.php HTTP/1.1
 <br>Host: localhost
 <br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
@@ -65,7 +66,7 @@ pass: VARCHAR(500), по умолчанию NULL
 <br>sec-ch-ua-platform: "Windows"
 <br>Upgrade-Insecure-Requests: 1
 <br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
-
+---
 <br>HTTP/1.1 302 Found
 <br>Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
 <br>Connection: Keep-Alive
