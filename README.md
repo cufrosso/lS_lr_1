@@ -56,7 +56,7 @@ pass: VARCHAR(500), по умолчанию NULL
 - обновление пароля\
 ![алгоритмы_5](алгоритмы5.jpg)
 
-## Примеры HTTP запросов/ответов
+# Примеры HTTP запросов/ответов
 
 <br>GET /lr_1/profile.php HTTP/1.1
 <br>Host: localhost
